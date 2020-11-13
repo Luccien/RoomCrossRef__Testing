@@ -1,0 +1,2 @@
+rootProject.name='ServiceTestFragment'
+include ':app'
