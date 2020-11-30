@@ -8,7 +8,7 @@ import eu.de.core.repository.note.NoteRepository
 import eu.de.core.usecase.note.AddNote
 import eu.de.core.usecase.note.GetAllNotes
 import eu.de.servicetestfragment.framework.db.note.RoomNoteDataSource
-import eu.de.servicetestfragment.framework.db.note.UseCases
+import eu.de.servicetestfragment.framework.db.note.NoteUseCases
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,7 +28,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 val roomDataSource =
     RoomNoteDataSource(application)
 
-    val useCases = UseCases(
+    val useCases = NoteUseCases(
         AddNote(repository),
         GetAllNotes(repository)
 
