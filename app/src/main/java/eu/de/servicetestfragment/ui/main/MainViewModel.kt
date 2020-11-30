@@ -51,7 +51,7 @@ val roomDataSource = RoomNoteDataSource(application)
 
     fun setInitialNote(){
         coroutineScope.launch {
-            val testNote: Note = Note("--444","c4",1,1,1)
+            val testNote: Note = Note("--5","h5",1,1,1)
 
             // 1 ---- original best way
             useCases.addNote(testNote)
