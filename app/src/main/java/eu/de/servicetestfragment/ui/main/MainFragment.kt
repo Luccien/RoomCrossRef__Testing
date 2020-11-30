@@ -9,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContentProviderCompat
 import androidx.lifecycle.Observer
+import eu.de.core.data.Note
 import eu.de.servicetestfragment.R
+import eu.de.servicetestfragment.framework.UseCases
 import eu.de.servicetestfragment.ui.main.other.Constants.Action_Start_Or_Resume_Service
 import eu.de.servicetestfragment.ui.main.services.TestService
 import kotlinx.android.synthetic.main.main_fragment.*
@@ -36,6 +38,9 @@ class MainFragment : Fragment() {
         //viewModel.loading.observe(this, loadingLiveDataObserver)
         //viewModel.loadError.observe(this, errorLiveDataObserver)
         viewModel.testS.value = "Q_"//    refresh()
+
+        viewModel.setInitialNote()
+        ///val allNotes:List<Note> = UseCases().GetAllNotes()
     }
 
 
@@ -74,6 +79,8 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 button.setOnClickListener{
+    viewModel.testInitialNote()
+
     viewModel.refresh()
     sendCommandToService(Action_Start_Or_Resume_Service)//,viewModel.testS.value)
 }
