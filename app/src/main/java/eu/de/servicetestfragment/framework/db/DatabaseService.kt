@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import eu.de.servicetestfragment.framework.db.note.NoteDao
+import eu.de.servicetestfragment.framework.db.note.NoteEntity
 
 @Database(entities = [NoteEntity::class], version= 1)
 abstract class DatabaseService : RoomDatabase(){
@@ -29,6 +31,6 @@ abstract class DatabaseService : RoomDatabase(){
                 )).also { instance = it }
     }
 
-    abstract fun noteDao():NoteDao
+    abstract fun noteDao(): NoteDao
 
 }

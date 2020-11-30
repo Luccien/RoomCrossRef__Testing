@@ -1,8 +1,8 @@
-package eu.de.servicetestfragment.framework.db
+package eu.de.servicetestfragment.framework.db.note
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import eu.de.core.data.Note
+import eu.de.core.data.note.Note
 
 @Entity(tableName = "note")
 data class NoteEntity (
@@ -29,5 +29,6 @@ data class NoteEntity (
             )
     }
     // no private ???  //// --> here id is passed because it is generated
-    fun toNote() = Note(title,content,creationTime,updateTime,id)
+    fun toNote() =
+        Note(title, content, creationTime, updateTime, id)
 }

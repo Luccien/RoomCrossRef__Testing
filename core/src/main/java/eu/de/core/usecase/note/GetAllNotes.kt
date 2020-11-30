@@ -1,7 +1,7 @@
-package eu.de.core.usecase
+package eu.de.core.usecase.note
 
-import eu.de.core.data.Note
-import eu.de.core.repository.NoteRepository
+import eu.de.core.data.note.Note
+import eu.de.core.repository.note.NoteRepository
 
 class GetAllNotes (private val noteRepository: NoteRepository){
 

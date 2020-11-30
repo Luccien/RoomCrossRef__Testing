@@ -3,13 +3,12 @@ package eu.de.servicetestfragment.ui.main
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import eu.de.core.data.Note
-import eu.de.core.repository.NoteRepository
-import eu.de.core.usecase.AddNote
-import eu.de.core.usecase.GetAllNotes
-import eu.de.servicetestfragment.framework.RoomNoteDataSource
-import eu.de.servicetestfragment.framework.UseCases
+import eu.de.core.data.note.Note
+import eu.de.core.repository.note.NoteRepository
+import eu.de.core.usecase.note.AddNote
+import eu.de.core.usecase.note.GetAllNotes
+import eu.de.servicetestfragment.framework.db.note.RoomNoteDataSource
+import eu.de.servicetestfragment.framework.db.note.UseCases
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,8 +19,14 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     val testS by lazy { MutableLiveData<String>() }
 
     /// WIESO SO??? NICHT EINFACH ohne NoteRepository --UNTERSCHIED SOURCE (wieso 2 ??)
-    val repository = NoteRepository(RoomNoteDataSource(application))
-val roomDataSource = RoomNoteDataSource(application)
+    val repository =
+        NoteRepository(
+            RoomNoteDataSource(
+                application
+            )
+        )
+val roomDataSource =
+    RoomNoteDataSource(application)
 
     val useCases = UseCases(
         AddNote(repository),
@@ -51,7 +56,8 @@ val roomDataSource = RoomNoteDataSource(application)
 
     fun setInitialNote(){
         coroutineScope.launch {
-            val testNote: Note = Note("--5","h5",1,1,1)
+            val testNote: Note =
+                Note("--5", "h5", 1, 1, 1)
 
             // 1 ---- original best way
             useCases.addNote(testNote)

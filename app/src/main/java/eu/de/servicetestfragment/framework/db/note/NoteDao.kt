@@ -1,10 +1,11 @@
-package eu.de.servicetestfragment.framework.db
+package eu.de.servicetestfragment.framework.db.note
 
 import androidx.room.*
-import androidx.room.OnConflictStrategy.REPLACE
+import eu.de.servicetestfragment.framework.db.BaseDao
 
 @Dao
-interface NoteDao: BaseDao<NoteEntity>{
+interface NoteDao:
+    BaseDao<NoteEntity> {
 
 
 

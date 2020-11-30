@@ -1,6 +1,6 @@
-package eu.de.core.repository
+package eu.de.core.repository.note
 
-import eu.de.core.data.Note
+import eu.de.core.data.note.Note
 
 // durch private val  ist es verfügbar !!
 class NoteRepository(private val dataSource2: NoteDataSource) {

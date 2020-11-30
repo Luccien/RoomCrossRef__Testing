@@ -1,4 +1,4 @@
-package eu.de.core.data
+package eu.de.core.data.note
 
 data class Note(
   var title:String,
