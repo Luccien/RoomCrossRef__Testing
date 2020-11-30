@@ -18,7 +18,7 @@ interface NoteDao: BaseDao<NoteEntity>{
     suspend fun getNoteEntity(id:Long): NoteEntity?
 
 
-    @Delete
-    suspend fun deleteNoteEntity(noteEntity: NoteEntity)
+   // @Delete
+    //suspend fun deleteNoteEntity(noteEntity: NoteEntity)
 
 }
