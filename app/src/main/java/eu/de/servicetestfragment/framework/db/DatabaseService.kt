@@ -6,8 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import eu.de.servicetestfragment.framework.db.note.NoteDao
 import eu.de.servicetestfragment.framework.db.note.NoteEntity
+import eu.de.servicetestfragment.framework.db.profile.ProfileDao
+import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
 
-@Database(entities = [NoteEntity::class], version= 1)
+@Database(entities = [NoteEntity::class, ProfileEntity::class], version= 2)
 abstract class DatabaseService : RoomDatabase(){
 
     companion object {
@@ -32,5 +34,5 @@ abstract class DatabaseService : RoomDatabase(){
     }
 
     abstract fun noteDao(): NoteDao
-
+    abstract fun profileDao(): ProfileDao
 }

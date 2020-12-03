@@ -7,7 +7,6 @@ import eu.de.core.data.note.Note
 @Entity(tableName = "note")
 data class NoteEntity (
 
-    // wieso hier val in entity und var in Note?
     val title:String,
     var content: String,
     var creationTime: Long,
@@ -19,16 +18,15 @@ data class NoteEntity (
     //var wordCount: Int = 0
 ){
     companion object{
-        // no private (does it matter?)
         fun fromNote(note: Note) =
             NoteEntity(
                 note.title,
                 note.content,
                 note.creationTime,
                 note.updateTime
+
             )
     }
-    // no private ???  //// --> here id is passed because it is generated
     fun toNote() =
         Note(title, content, creationTime, updateTime, id)
 }

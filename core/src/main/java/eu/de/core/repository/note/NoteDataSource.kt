@@ -8,7 +8,7 @@ interface NoteDataSource {
 
     suspend fun get(id: Long): Note?
 
-    suspend fun getAll():List<Note> // wieso nicht <Note?>
+    suspend fun getAll():List<Note>
 
-    suspend fun remove(note: Note)   //geht wahrscheinlich beides? wieso nicht id?(id:Long)
+    suspend fun remove(note: Note)
 }

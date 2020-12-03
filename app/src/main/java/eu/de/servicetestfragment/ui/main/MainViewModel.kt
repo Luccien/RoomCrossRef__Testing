@@ -4,11 +4,17 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import eu.de.core.data.note.Note
+import eu.de.core.data.profile.Profile
 import eu.de.core.repository.note.NoteRepository
+import eu.de.core.repository.profile.ProfileRepository
 import eu.de.core.usecase.note.AddNote
 import eu.de.core.usecase.note.GetAllNotes
+import eu.de.core.usecase.profile.AddProfile
+import eu.de.core.usecase.profile.GetAllProfile
 import eu.de.servicetestfragment.framework.db.note.RoomNoteDataSource
 import eu.de.servicetestfragment.framework.db.note.NoteUseCases
+import eu.de.servicetestfragment.framework.db.profile.ProfileUseCases
+import eu.de.servicetestfragment.framework.db.profile.RoomProfileDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,20 +24,32 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     val testS by lazy { MutableLiveData<String>() }
 
-    /// WIESO SO??? NICHT EINFACH ohne NoteRepository --UNTERSCHIED SOURCE (wieso 2 ??)
-    val repository =
+    val profileRepository =
+        ProfileRepository(
+            RoomProfileDataSource(
+                application
+            )
+        )
+    val noteRepository =
         NoteRepository(
             RoomNoteDataSource(
                 application
             )
         )
-val roomDataSource =
+
+    /*
+    val roomDataSource =
     RoomNoteDataSource(application)
+     */
 
-    val useCases = NoteUseCases(
-        AddNote(repository),
-        GetAllNotes(repository)
+    val noteUseCases = NoteUseCases(
+        AddNote(noteRepository),
+        GetAllNotes(noteRepository)
+    )
 
+    val profileUseCases = ProfileUseCases(
+        AddProfile(profileRepository),
+        GetAllProfile(profileRepository)
     )
 
 
@@ -48,8 +66,9 @@ val roomDataSource =
 
     fun testInitialNote(){
         coroutineScope.launch {
-           // val testNote: Note = Note("--1","c1",1,1,1)
-            var list:List<Note> = useCases.getAllNotes()
+
+            //var list:List<Note> = useCases.getAllNotes()
+            var list:List<Profile> = profileUseCases.getAllProfile()
             var test = "fdf"
         }
     }
@@ -58,9 +77,10 @@ val roomDataSource =
         coroutineScope.launch {
             val testNote: Note =
                 Note("--5", "h5", 1, 1, 1)
-
+           val testProfile: Profile = Profile("profileTest","des")
+            profileUseCases.addProfile(testProfile)
             // 1 ---- original best way
-            useCases.addNote(testNote)
+            //noteUseCases.addNote(testNote)
             //------
 
             // 2 --- works directly call usescases
