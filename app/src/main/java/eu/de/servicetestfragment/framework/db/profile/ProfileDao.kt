@@ -7,7 +7,7 @@ import eu.de.servicetestfragment.framework.db.BaseDao
 @Dao
 interface ProfileDao: BaseDao<ProfileEntity> {
 
-    @Query("SELECT * FROM profile WHERE id = :id")
+    @Query("SELECT * FROM profile WHERE profileId = :id")
     fun getProfile(id:Long):ProfileEntity
 
     @Query("SELECT * FROM profile")

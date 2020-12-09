@@ -9,7 +9,7 @@ data class ProfileEntity(
    val name:String,
     val description:String,
     @PrimaryKey(autoGenerate = true)
-    val id:Long = 0L
+    val profileId:Long = 0L
 
 ) {
     companion object{
@@ -18,6 +18,6 @@ data class ProfileEntity(
 
     }
 
-    fun toProfile():Profile = Profile(name,description,id)
+    fun toProfile():Profile = Profile(name,description,profileId)
 
 }

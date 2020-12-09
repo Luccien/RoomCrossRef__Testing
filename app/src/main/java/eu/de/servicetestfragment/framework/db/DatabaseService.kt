@@ -9,7 +9,7 @@ import eu.de.servicetestfragment.framework.db.note.NoteEntity
 import eu.de.servicetestfragment.framework.db.profile.ProfileDao
 import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
 
-@Database(entities = [NoteEntity::class, ProfileEntity::class], version= 2)
+@Database(entities = [NoteEntity::class, ProfileEntity::class], version= 3)
 abstract class DatabaseService : RoomDatabase(){
 
     companion object {

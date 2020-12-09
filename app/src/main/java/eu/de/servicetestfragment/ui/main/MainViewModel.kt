@@ -76,7 +76,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     fun setInitialNote(){
         coroutineScope.launch {
             val testNote: Note =
-                Note("--5", "h5", 1, 1, 1)
+                Note("--5677", "h5", 1, 1, 1)
            val testProfile: Profile = Profile("profileTest","des")
             profileUseCases.addProfile(testProfile)
             // 1 ---- original best way
