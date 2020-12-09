@@ -10,7 +10,7 @@ interface NoteDao:
     @Query("SELECT * FROM note")
     suspend fun getAllNoteEntities():List<NoteEntity>
 
-    @Query("SELECT * FROM note WHERE id = :id")
+    @Query("SELECT * FROM note WHERE noteId = :id")
     suspend fun getNoteEntity(id:Long): NoteEntity?
 
 

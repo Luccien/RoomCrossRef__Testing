@@ -13,7 +13,7 @@ data class NoteEntity (
     var updateTime: Long,
 
     @PrimaryKey(autoGenerate = true)
-    var id: Long = 0L//,
+    var noteId: Long = 0L//,
 
     //var wordCount: Int = 0
 ){
@@ -28,5 +28,5 @@ data class NoteEntity (
             )
     }
     fun toNote() =
-        Note(title, content, creationTime, updateTime, id)
+        Note(title, content, creationTime, updateTime, noteId)
 }
