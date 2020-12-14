@@ -11,6 +11,7 @@ data class NoteEntity (
     var content: String,
     var creationTime: Long,
     var updateTime: Long,
+    var noteProfileId: Long,
 
     @PrimaryKey(autoGenerate = true)
     var noteId: Long = 0L//,
@@ -23,10 +24,10 @@ data class NoteEntity (
                 note.title,
                 note.content,
                 note.creationTime,
-                note.updateTime
-
+                note.updateTime,
+                note.noteProfileId
             )
     }
     fun toNote() =
-        Note(title, content, creationTime, updateTime, noteId)
+        Note(title, content, creationTime, updateTime,noteProfileId, noteId)
 }

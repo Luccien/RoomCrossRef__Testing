@@ -5,5 +5,6 @@ data class Note(
   var content: String,
   var creationTime: Long,
   var updateTime: Long,
+  var noteProfileId: Long,
   var noteId: Long = 0//,
 )

@@ -75,6 +75,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     fun setInitialNote(){
         coroutineScope.launch {
+            // besser ohne note ide soll ja automatisch!
             val testNote: Note =
                 Note("--5677", "h5", 1, 1, 1)
            val testProfile: Profile = Profile("profileTest","des")
