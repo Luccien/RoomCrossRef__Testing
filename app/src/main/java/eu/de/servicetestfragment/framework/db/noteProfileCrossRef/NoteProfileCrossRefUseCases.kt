@@ -1,4 +1,10 @@
 package eu.de.servicetestfragment.framework.db.noteProfileCrossRef
 
-class NoteProfileCrossRefUseCases {
+import eu.de.core.usecase.noteProfileCrossRef.AddNoteProfileCrossRef
+import eu.de.core.usecase.noteProfileCrossRef.GetAllNoteProfileCrossRef
+
+data class NoteProfileCrossRefUseCases(
+    val addNoteProfileCrossRef: AddNoteProfileCrossRef,
+    val getAllNoteProfileCrossRef: GetAllNoteProfileCrossRef
+) {
 }

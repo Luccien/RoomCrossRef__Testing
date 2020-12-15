@@ -1,4 +1,10 @@
 package eu.de.core.data.noteProfileCrossRef
 
-class NoteProfileCrossRef {
+data class NoteProfileCrossRef(
+    var noteId:Long,
+    var profileId:Long
+
+) {
+
+
 }

@@ -7,6 +7,6 @@ import eu.de.servicetestfragment.framework.db.BaseDao
 @Dao
 interface NoteProfileCrossRefDao : BaseDao<NoteProfileCrossRefEntity> {
 
-    @Query("SELECT * FROM profile")// TODO
+    @Query("SELECT * FROM noteProfileCrossRef")
     fun getAllNoteProfileCrossRef():List<NoteProfileCrossRefEntity>
 }

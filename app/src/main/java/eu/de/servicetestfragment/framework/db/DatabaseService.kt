@@ -6,10 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import eu.de.servicetestfragment.framework.db.note.NoteDao
 import eu.de.servicetestfragment.framework.db.note.NoteEntity
+import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefDao
+import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefEntity
 import eu.de.servicetestfragment.framework.db.profile.ProfileDao
 import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
 
-@Database(entities = [NoteEntity::class, ProfileEntity::class], version= 5)
+@Database(entities = [NoteEntity::class, ProfileEntity::class, NoteProfileCrossRefEntity::class], version= 6)
 abstract class DatabaseService : RoomDatabase(){
 
     companion object {
@@ -35,4 +37,5 @@ abstract class DatabaseService : RoomDatabase(){
 
     abstract fun noteDao(): NoteDao
     abstract fun profileDao(): ProfileDao
+    abstract fun noteProfileCrossRefDao(): NoteProfileCrossRefDao
 }
