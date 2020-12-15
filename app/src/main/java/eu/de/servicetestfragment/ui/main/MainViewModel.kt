@@ -66,9 +66,10 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     fun testInitialNote(){
         coroutineScope.launch {
+            var listNote:List<Note> = noteUseCases.getAllNotes()
 
             //var list:List<Note> = useCases.getAllNotes()
-            var list:List<Profile> = profileUseCases.getAllProfile()
+            var listProfile:List<Profile> = profileUseCases.getAllProfile()
             var test = "fdf"
         }
     }
@@ -80,6 +81,19 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
                 Note("--5677", "h5", 1, 1, 1)
            val testProfile: Profile = Profile("profileTest","des")
             profileUseCases.addProfile(testProfile)
+
+            // a) profile mit id bekommen
+//---ok
+            // b) note erzeugen
+            noteUseCases.addNote(testNote)
+            // c) note per id bekommen
+
+            // d) cross reff erzeugen
+
+            // e) cross ref liste bekommen (profile mit notes)
+
+            // f) selbe note in weiteres profil eintragen
+
             // 1 ---- original best way
             //noteUseCases.addNote(testNote)
             //------
