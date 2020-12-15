@@ -13,6 +13,7 @@ import eu.de.core.usecase.profile.AddProfile
 import eu.de.core.usecase.profile.GetAllProfile
 import eu.de.servicetestfragment.framework.db.note.RoomNoteDataSource
 import eu.de.servicetestfragment.framework.db.note.NoteUseCases
+import eu.de.servicetestfragment.framework.db.profile.ProfileDao
 import eu.de.servicetestfragment.framework.db.profile.ProfileUseCases
 import eu.de.servicetestfragment.framework.db.profile.RoomProfileDataSource
 import kotlinx.coroutines.CoroutineScope
@@ -71,6 +72,8 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             //var list:List<Note> = useCases.getAllNotes()
             var listProfile:List<Profile> = profileUseCases.getAllProfile()
             var test = "fdf"
+//ProfileDao.addEntity
+            //addEntity
         }
     }
 
