@@ -4,16 +4,21 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import eu.de.core.data.note.Note
+import eu.de.core.data.noteProfileCrossRef.NoteProfileCrossRef
 import eu.de.core.data.profile.Profile
 import eu.de.core.repository.note.NoteRepository
+import eu.de.core.repository.noteProfileCrossRef.NoteProfileCrossRefRepository
 import eu.de.core.repository.profile.ProfileRepository
 import eu.de.core.usecase.note.AddNote
 import eu.de.core.usecase.note.GetAllNotes
+import eu.de.core.usecase.noteProfileCrossRef.AddNoteProfileCrossRef
+import eu.de.core.usecase.noteProfileCrossRef.GetAllNoteProfileCrossRef
 import eu.de.core.usecase.profile.AddProfile
 import eu.de.core.usecase.profile.GetAllProfile
 import eu.de.servicetestfragment.framework.db.note.RoomNoteDataSource
 import eu.de.servicetestfragment.framework.db.note.NoteUseCases
-import eu.de.servicetestfragment.framework.db.profile.ProfileDao
+import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefUseCases
+import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.RoomNoteProfileCrossRefDataSource
 import eu.de.servicetestfragment.framework.db.profile.ProfileUseCases
 import eu.de.servicetestfragment.framework.db.profile.RoomProfileDataSource
 import kotlinx.coroutines.CoroutineScope
@@ -24,6 +29,13 @@ import kotlinx.coroutines.launch
 class MainViewModel(application: Application): AndroidViewModel(application) {
 
     val testS by lazy { MutableLiveData<String>() }
+
+    val noteProfileCrossRefRepository =
+        NoteProfileCrossRefRepository(
+            RoomNoteProfileCrossRefDataSource(
+                application
+            )
+        )
 
     val profileRepository =
         ProfileRepository(
@@ -42,6 +54,12 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     val roomDataSource =
     RoomNoteDataSource(application)
      */
+
+
+    val noteProfileCrossRefUseCases = NoteProfileCrossRefUseCases(
+        AddNoteProfileCrossRef(noteProfileCrossRefRepository),
+        GetAllNoteProfileCrossRef(noteProfileCrossRefRepository)
+    )
 
     val noteUseCases = NoteUseCases(
         AddNote(noteRepository),
@@ -68,10 +86,12 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     fun testInitialNote(){
         coroutineScope.launch {
             var listNote:List<Note> = noteUseCases.getAllNotes()
-
+var crossRefList:List<NoteProfileCrossRef> = noteProfileCrossRefUseCases.getAllNoteProfileCrossRef()
             //var list:List<Note> = useCases.getAllNotes()
             var listProfile:List<Profile> = profileUseCases.getAllProfile()
             var test = "fdf"
+
+
 //ProfileDao.addEntity
             //addEntity
         }
@@ -92,7 +112,8 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             // c) note per id bekommen
 
             // d) cross reff erzeugen
-
+val testNoteProfileRef:NoteProfileCrossRef = NoteProfileCrossRef(1,1)
+            noteProfileCrossRefUseCases.addNoteProfileCrossRef(testNoteProfileRef)
             // e) cross ref liste bekommen (profile mit notes)
 
             // f) selbe note in weiteres profil eintragen
