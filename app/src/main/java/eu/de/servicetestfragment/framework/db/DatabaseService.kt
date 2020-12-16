@@ -12,7 +12,7 @@ import eu.de.servicetestfragment.framework.db.profile.ProfileDao
 import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
 
 // TODO cut out , ProfileWithNotesEntity::class
-@Database(entities = [NoteEntity::class, ProfileEntity::class, NoteProfileCrossRefEntity::class], version= 9)
+@Database(entities = [NoteEntity::class, ProfileEntity::class, NoteProfileCrossRefEntity::class], version= 11)
 abstract class DatabaseService : RoomDatabase(){
 
     companion object {

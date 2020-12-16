@@ -13,7 +13,7 @@ data class NoteEntity (
     var updateTime: Long,
     var noteProfileId: Long,
 
-    @PrimaryKey// TODO LEAVE OUT FOR TESTING(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     var noteId: Long = 0L//,
 
     //var wordCount: Int = 0

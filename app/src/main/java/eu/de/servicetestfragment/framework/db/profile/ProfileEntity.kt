@@ -8,7 +8,7 @@ import eu.de.core.data.profile.Profile
 data class ProfileEntity(
    val name:String,
     val description:String,
-    @PrimaryKey//////// TODO LEAVE OUT FOR TESTING (autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     val profileId:Long = 0L
 
 ) {
