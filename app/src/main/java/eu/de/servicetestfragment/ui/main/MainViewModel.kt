@@ -21,6 +21,8 @@ import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCro
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.RoomNoteProfileCrossRefDataSource
 import eu.de.servicetestfragment.framework.db.profile.ProfileUseCases
 import eu.de.servicetestfragment.framework.db.profile.RoomProfileDataSource
+import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotesEntity
+import eu.de.servicetestfragment.framework.db.profileWithNotes.RoomProfileWithNotesDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,6 +31,9 @@ import kotlinx.coroutines.launch
 class MainViewModel(application: Application): AndroidViewModel(application) {
 
     val testS by lazy { MutableLiveData<String>() }
+
+    val roomProfileWithNotesDataSource:RoomProfileWithNotesDataSource =
+        RoomProfileWithNotesDataSource(application)
 
     val noteProfileCrossRefRepository =
         NoteProfileCrossRefRepository(
@@ -90,8 +95,9 @@ var crossRefList:List<NoteProfileCrossRef> = noteProfileCrossRefUseCases.getAllN
             //var list:List<Note> = useCases.getAllNotes()
             var listProfile:List<Profile> = profileUseCases.getAllProfile()
             var test = "fdf"
-
-
+            //-------- TEST
+            var profileWithNotesList:List<ProfileWithNotesEntity> = roomProfileWithNotesDataSource.getAll()
+            var test2 = "fdf"
 //ProfileDao.addEntity
             //addEntity
         }

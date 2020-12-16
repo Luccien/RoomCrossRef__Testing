@@ -10,8 +10,10 @@ import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCro
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefEntity
 import eu.de.servicetestfragment.framework.db.profile.ProfileDao
 import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
+import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotesDao
+import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotesEntity
 
-@Database(entities = [NoteEntity::class, ProfileEntity::class, NoteProfileCrossRefEntity::class], version= 6)
+@Database(entities = [NoteEntity::class, ProfileEntity::class, NoteProfileCrossRefEntity::class, ProfileWithNotesEntity::class], version= 7)
 abstract class DatabaseService : RoomDatabase(){
 
     companion object {
@@ -38,4 +40,5 @@ abstract class DatabaseService : RoomDatabase(){
     abstract fun noteDao(): NoteDao
     abstract fun profileDao(): ProfileDao
     abstract fun noteProfileCrossRefDao(): NoteProfileCrossRefDao
+    abstract fun profileWithNotesDao(): ProfileWithNotesDao
 }
