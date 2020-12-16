@@ -1,19 +1,14 @@
 package eu.de.servicetestfragment.framework.db.profileWithNotes
 
 import androidx.room.Embedded
-import androidx.room.Entity
 import androidx.room.Junction
 import androidx.room.Relation
-import eu.de.core.data.note.Note
-import eu.de.core.data.noteProfileCrossRef.NoteProfileCrossRef
-import eu.de.core.data.profile.Profile
 import eu.de.servicetestfragment.framework.db.note.NoteEntity
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefEntity
 import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
 
-//--- TODO out @Entity(tableName = "profileWithNotes")
-data class ProfileWithNotesEntity (
-    @Embedded val profile: Profile,
+data class ProfileWithNotes (
+    @Embedded val profileEntity: ProfileEntity,
     @Relation(
     parentColumn = "profileId",
     entityColumn = "noteId",
@@ -21,7 +16,7 @@ data class ProfileWithNotesEntity (
         //associateBy = Junction(NoteProfileCrossRef::class)
 
     )
-        val notes: List<Note>
+        val noteEntities: List<NoteEntity>
 )
 {
 

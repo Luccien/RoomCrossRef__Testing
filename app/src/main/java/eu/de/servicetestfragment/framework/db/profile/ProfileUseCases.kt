@@ -6,6 +6,6 @@ import eu.de.core.usecase.profile.GetAllProfile
 data class ProfileUseCases (
     val addProfile: AddProfile,
     val getAllProfile: GetAllProfile
-
+    //fun getAllProfileWithNotes():List<ProfileWithNotes>
 ){
 }

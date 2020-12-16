@@ -10,8 +10,7 @@ import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCro
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefEntity
 import eu.de.servicetestfragment.framework.db.profile.ProfileDao
 import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
-import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotesDao
-import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotesEntity
+
 // TODO cut out , ProfileWithNotesEntity::class
 @Database(entities = [NoteEntity::class, ProfileEntity::class, NoteProfileCrossRefEntity::class], version= 9)
 abstract class DatabaseService : RoomDatabase(){

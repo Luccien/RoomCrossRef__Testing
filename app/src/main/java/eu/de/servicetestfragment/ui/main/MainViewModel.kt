@@ -21,8 +21,7 @@ import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCro
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.RoomNoteProfileCrossRefDataSource
 import eu.de.servicetestfragment.framework.db.profile.ProfileUseCases
 import eu.de.servicetestfragment.framework.db.profile.RoomProfileDataSource
-import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotesEntity
-import eu.de.servicetestfragment.framework.db.profileWithNotes.RoomProfileWithNotesDataSource
+import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotes
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,8 +31,8 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     val testS by lazy { MutableLiveData<String>() }
 
-    val roomProfileWithNotesDataSource:RoomProfileWithNotesDataSource =
-        RoomProfileWithNotesDataSource(application)
+    //val roomProfileWithNotesDataSource:RoomProfileWithNotesDataSource =
+      //  RoomProfileWithNotesDataSource(application)
 
     val noteProfileCrossRefRepository =
         NoteProfileCrossRefRepository(
@@ -55,10 +54,10 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             )
         )
 
-    /*
-    val roomDataSource =
-    RoomNoteDataSource(application)
-     */
+// TODO just instead of usecases -- add to usecases
+    val roomProfileDataSource =
+        RoomProfileDataSource(application)
+
 
 
     val noteProfileCrossRefUseCases = NoteProfileCrossRefUseCases(
@@ -96,7 +95,10 @@ var crossRefList:List<NoteProfileCrossRef> = noteProfileCrossRefUseCases.getAllN
             var listProfile:List<Profile> = profileUseCases.getAllProfile()
             var test = "fdf"
             //-------- TEST
-            var profileWithNotesList:List<ProfileWithNotesEntity> = roomProfileWithNotesDataSource.getAll()
+            ///// shuld be in usecases?? TODO
+            //var listProfileWithNotes:List<ProfileWithNotes> = profileUseCases.getAllProfileWithNotes()
+
+            var profileWithNotesList:List<ProfileWithNotes> = roomProfileDataSource.getAllProfileWithNotes()
             var test2 = "fdf"
 //ProfileDao.addEntity
             //addEntity
