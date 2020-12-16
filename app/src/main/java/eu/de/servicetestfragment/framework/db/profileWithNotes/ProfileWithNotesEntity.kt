@@ -11,7 +11,7 @@ import eu.de.servicetestfragment.framework.db.note.NoteEntity
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefEntity
 import eu.de.servicetestfragment.framework.db.profile.ProfileEntity
 
-@Entity(tableName = "profileWithNotes")
+//--- TODO out @Entity(tableName = "profileWithNotes")
 data class ProfileWithNotesEntity (
     @Embedded val profile: Profile,
     @Relation(
