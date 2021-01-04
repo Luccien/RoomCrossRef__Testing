@@ -122,6 +122,10 @@ var crossRefList:List<NoteProfileCrossRef> = noteProfileCrossRefUseCases.getAllN
             // d) cross reff erzeugen
 val testNoteProfileRef:NoteProfileCrossRef = NoteProfileCrossRef(1,1)
             noteProfileCrossRefUseCases.addNoteProfileCrossRef(testNoteProfileRef)
+
+            val testNoteProfileRef2:NoteProfileCrossRef = NoteProfileCrossRef(2,1)
+            noteProfileCrossRefUseCases.addNoteProfileCrossRef(testNoteProfileRef2)
+
             // e) cross ref liste bekommen (profile mit notes)
 
             // f) selbe note in weiteres profil eintragen
