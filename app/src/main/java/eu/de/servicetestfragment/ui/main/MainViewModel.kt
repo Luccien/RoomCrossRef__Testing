@@ -19,6 +19,7 @@ import eu.de.servicetestfragment.framework.db.note.RoomNoteDataSource
 import eu.de.servicetestfragment.framework.db.note.NoteUseCases
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.NoteProfileCrossRefUseCases
 import eu.de.servicetestfragment.framework.db.noteProfileCrossRef.RoomNoteProfileCrossRefDataSource
+import eu.de.servicetestfragment.framework.db.noteWithProfiles.NoteWithProfiles
 import eu.de.servicetestfragment.framework.db.profile.ProfileUseCases
 import eu.de.servicetestfragment.framework.db.profile.RoomProfileDataSource
 import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotes
@@ -98,7 +99,11 @@ var crossRefList:List<NoteProfileCrossRef> = noteProfileCrossRefUseCases.getAllN
             ///// shuld be in usecases?? TODO
             //var listProfileWithNotes:List<ProfileWithNotes> = profileUseCases.getAllProfileWithNotes()
 
+
             var profileWithNotesList:List<ProfileWithNotes> = roomProfileDataSource.getAllProfileWithNotes()
+
+            var noteWithProfilesList:List<NoteWithProfiles> = roomProfileDataSource.getAllNoteWithProfiles()
+
             var test2 = "fdf"
 //ProfileDao.addEntity
             //addEntity

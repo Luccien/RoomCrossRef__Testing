@@ -4,6 +4,7 @@ import android.content.Context
 import eu.de.core.data.profile.Profile
 import eu.de.core.repository.profile.ProfileDataSource
 import eu.de.servicetestfragment.framework.db.DatabaseService
+import eu.de.servicetestfragment.framework.db.noteWithProfiles.NoteWithProfiles
 import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotes
 
 class RoomProfileDataSource(context: Context):ProfileDataSource {
@@ -15,6 +16,9 @@ class RoomProfileDataSource(context: Context):ProfileDataSource {
 
     // todo add it to use cases -- does there need to be conversion?
     suspend fun getAllProfileWithNotes():List<ProfileWithNotes> = profileDao.getAllProfileWithNotes()
+
+    suspend fun getAllNoteWithProfiles():List<NoteWithProfiles> = profileDao.getAllNoteWithProfiles()
+
 
     override suspend fun add(profile: Profile) = profileDao.addEntity(ProfileEntity.fromProfile(profile))
 

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
 import eu.de.servicetestfragment.framework.db.BaseDao
+import eu.de.servicetestfragment.framework.db.noteWithProfiles.NoteWithProfiles
 import eu.de.servicetestfragment.framework.db.profileWithNotes.ProfileWithNotes
 
 @Dao
@@ -18,4 +19,10 @@ interface ProfileDao: BaseDao<ProfileEntity> {
     @Transaction
     @Query("SELECT * FROM profile")
     fun getAllProfileWithNotes():List<ProfileWithNotes>
+
+    @Transaction
+    @Query("SELECT * FROM note")
+    fun getAllNoteWithProfiles():List<NoteWithProfiles>
+
+
 }
