@@ -110,7 +110,10 @@ var crossRefList:List<NoteProfileCrossRef> = noteProfileCrossRefUseCases.getAllN
         }
     }
 
-    fun setInitialNote(){
+    fun setInitialNote() {
+
+    }
+    fun setInitialNoteOOO() {
         coroutineScope.launch {
             // besser ohne note ide soll ja automatisch!
             val testNote: Note =
